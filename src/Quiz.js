@@ -1,6 +1,9 @@
 import React,{Component} from 'react';
 import QuizQuestion from './QuizQuestion.js';
 import QuizEnd from './QuizEnd.js';
+import {TestQuestions} from './shared/TestQuestions';
+import {JavaQuestions} from './shared/JavaQuestions';
+
 
 let quizData = require('./quiz_data.json');
 
@@ -10,7 +13,8 @@ class Quiz extends Component{
     constructor(props){
         super(props);
         this.state={
-            quiz_position:1
+            quiz_position:1,
+            TestQuestionsData:TestQuestions
         }
     }
     showNextQuestion(){
@@ -30,7 +34,7 @@ class Quiz extends Component{
     render(){
       
 
-        const isQuizEnd=this.state.quiz_position-1===quizData.quiz_questions.length;
+        const isQuizEnd=this.state.quiz_position-1===this.state.TestQuestionsData.length;
         
    
 
@@ -45,7 +49,7 @@ class Quiz extends Component{
            
             return(
                 <div>
-                    <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position-1]}
+                    <QuizQuestion quiz_question={this.state.TestQuestionsData[this.state.quiz_position-1]}
                     showNextQuestionHandler={this.showNextQuestion.bind(this)} />
                 </div>
             );

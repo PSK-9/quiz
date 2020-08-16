@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 
-import QuizQuestionButton from './QuizQuestionButton.js';
+import QuizQuestionButton from './QuizQuestionButtonComponent.js';
 
 class QuizQuestion extends Component{
 
@@ -12,16 +12,17 @@ class QuizQuestion extends Component{
     }
     handleClick(buttonText){
         if(buttonText===this.props.quiz_question.answer){
-            this.props.showNextQuestionHandler();
-            this.setState({
+           this.props.handleScore();
+      /*      this.setState({
                 incorrectAnswer:false
-            });
+            });*/
         }
-        else{
+     /*   else{
             this.setState({
                 incorrectAnswer:true
             });
-        }
+        }*/
+        this.props.showNextQuestionHandler();
     }
     render(){
         

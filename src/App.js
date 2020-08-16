@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import './App.css'
-import Quiz from './Quiz.js';
-
+import Main from './Components/MainComponent';
+import { BrowserRouter } from 'react-router-dom';
 class App extends Component {
   render() {
     return (
-      <Quiz />
-    )
+      <BrowserRouter>
+        <div className="container">
+          <Main />
+        </div>
+      </BrowserRouter>
+    );
   }
 }
 
